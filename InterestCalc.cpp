@@ -34,8 +34,7 @@ double InterestCalc::getPercentInterest() {
 int InterestCalc::getNumberYears() {
 	return numberYears;
 }
-//function to calculate monthly balance
-months, including interest
+//function to calculate monthly balan months, including interest
 double InterestCalc::monthlyBalance(int t_months, double t_monthDeposit) {
 	double balAmount = getInitialDeposit();
 	for (int i = 0; i < t_months; i++) {
@@ -57,11 +56,13 @@ double InterestCalc::monthlyInterest(int t_months, double t_monthDeposit) {
 double InterestCalc::annualBalance(int t_numYears, double t_depositAmount) {
 	int numMonths;
 	double annualBal = 0.00;
-	numMonths = t_numYears * 12;	for (int i = 0; i < t_numYears; i++) {
+	numMonths = t_numYears * 12;
+	for (int i = 0; i < t_numYears; i++) {
 		annualBal = monthlyBalance(numMonths, t_depositAmount);
 	}
 	return annualBal;
-}//function to calculate annual interest
+}
+//function to calculate annual interest
 //Calculates all years and then removes all years except current year - if passed "3" calculates interest for three years
 // and subtracts the first two.
 double InterestCalc::annualInterest(int t_numYears, double t_depositAmount) {
@@ -93,9 +94,7 @@ void InterestCalc::showReport(double t_monthlyDep) {
 		<< endl;
 	cout << setprecision(2) << fixed << endl; //display rounded values
 	for (int i = 0; i < getNumberYears(); i++) {
-		cout << " " << i + 1 << " " << annualBalance(i + 1,
-			t_monthlyDep) << " " << annualInterest(i + 1,
-				t_monthlyDep) << endl;
+		cout << " " << i + 1 << " " << annualBalance(i + 1, t_monthlyDep) << " " << annualInterest(i + 1, t_monthlyDep) << endl;
 	}
 	return;
-}
+}
